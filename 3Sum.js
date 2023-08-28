@@ -22,8 +22,17 @@ var TwoSum= function(nums,i1,j){
         else if (nums[left]+ nums[j] < -(nums[i1]) ){
             i=i+1;
         }
-        else if (nums[left]+ nums[j]== -(nums[i1])){
-            console.log('result = ', nums[left], nums[i1],nums[j]);
+        else {
+            
+            while(i< j && nums[i]==nums[i+1]){
+                i++;
+            }
+            while(i < j && nums[j]== nums[j-1]){
+                j--;
+            }
+            console.log('result = ',  nums[i1],nums[left],nums[j]);
+            i++;
+            j--;
         }
 }
 }
@@ -33,7 +42,7 @@ var threeSum = function(nums) {
     nums.sort((a,b)=> a-b);
     //fixing n1
     console.log(nums);
-    for(var i=0;i< nums.length-3;i++){
+    for(var i=0;i< nums.length-2;i++){
         // Avoid the duplicates
         let j= nums.length-1;
         while(nums[i]===nums[i+1]){
